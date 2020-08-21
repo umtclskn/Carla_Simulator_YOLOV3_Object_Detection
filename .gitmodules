@@ -1,0 +1,4 @@
+[submodule "tensorflow-yolov3"]
+	path = tensorflow-yolov3
+	url = https://github.com/umtclskn/tensorflow-yolov3.git
+	branch = carla_simulator_yolov3
