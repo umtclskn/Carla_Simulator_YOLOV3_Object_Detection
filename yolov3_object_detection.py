@@ -23,7 +23,7 @@ Controls:
 import cv2
 import time
 import numpy as np
-import tensorflow-yolov3.core.utils as utils
+import tensorflow_yolov3.core.utils as utils
 
 import tensorflow as tf
 from PIL import Image
@@ -271,7 +271,7 @@ def main():
 
     try:
         return_elements = ["input/input_data:0", "pred_sbbox/concat_2:0", "pred_mbbox/concat_2:0", "pred_lbbox/concat_2:0"]
-        pb_file         = "./tensorflow-yolov3/yolov3_coco.pb"
+        pb_file         = "./tensorflow_yolov3/yolov3_coco.pb"
         
         # video_path      = 0
         num_classes     = 80
