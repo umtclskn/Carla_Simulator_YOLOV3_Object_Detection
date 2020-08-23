@@ -57,7 +57,7 @@ Go to the Carla Simulator examples path ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI
 	```
 	extract this file under the below path:
 
-	> ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI\examples\tensorflow-yolov3\yolov3\checkpoint
+	> ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI\examples\tensorflow-yolov3\checkpoint
 
 ---
 3. (type these command at the  ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI\examples\tensorflow-yolov3)
@@ -73,6 +73,11 @@ Go to the Carla Simulator examples path ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI
 	> python spawn_npc.py
 
 
+6.  Start the vehicle, pedestrain, etc detections	
+	> python yolov3_object_detection.py
+	
+	
+	
 
 
 
