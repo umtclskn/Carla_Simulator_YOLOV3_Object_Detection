@@ -7,7 +7,7 @@ YoloV3 Tensorflow implementation forked from:
  https://github.com/YunYang1994/tensorflow-yolov3 (branch: [dependabot/pip/docs/tensorflow-gpu-1.15.2](https://github.com/YunYang1994/tensorflow-yolov3/tree/dependabot/pip/docs/tensorflow-gpu-1.15.2))
 
 
-![Image of Yaktocat]( https://miro.medium.com/max/2560/1*Ef6QU6hyuyvvqVfl87a1qw.png)
+![Image of Yaktocat]( ./carla_yolov3.png)
 
 ## My Environment
 Windows 10
@@ -18,7 +18,6 @@ pygame 1.9.6
 opencv-python 4.2.0.34
 numpy 1.18.3
 pillow 7.1.2
-
 
 
 ## Project  Directory Structure
@@ -37,3 +36,43 @@ pillow 7.1.2
 │   │   │   │ 	├── tensorflow_yolov3     
 │   │   │   │ 	│   ├── utils.py            
 ```
+
+## Setup
+
+1) Open a command line 
+Go to the Carla Simulator examples path ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI\examples
+
+	Clone this repo without project folder with the below section
+
+	```
+	git init
+	git remote add origin https://github.com/umtclskn/Carla_Simulator_YOLOV3_Object_Detection.git
+	git pull origin master
+	git submodule update --init --recursive
+	```
+
+2. Download COCO weights from this link:
+	```
+	https://github.com/YunYang1994/tensorflow-yolov3/releases/download/v1.0/yolov3_coco.tar.gz
+	```
+	extract this file under the below path:
+
+	> ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI\examples\tensorflow-yolov3\yolov3\checkpoint
+
+---
+3. (type these command at the  ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI\examples\tensorflow-yolov3)
+	```
+	cd..
+	python convert_weight.py
+	python freeze_graph.py
+	```
+	see the 
+4. Open CarlaEU4.exe    (..\CARLA_0.9.9\WindowsNoEditor)
+
+5.  Run spawn actor  python file for  adding pedestrians or vehicles.
+	> python spawn_npc.py
+
+
+
+
+
