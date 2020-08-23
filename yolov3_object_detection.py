@@ -23,7 +23,7 @@ Controls:
 import cv2
 import time
 import numpy as np
-import tensorflow_yolov3.core.utils as utils
+import tensorflow_yolov3.carla.utils as utils
 
 import tensorflow as tf
 from PIL import Image
@@ -242,8 +242,8 @@ class BasicSynchronousClient(object):
                                                 np.reshape(pred_mbbox, (-1, 5 + num_classes)),
                                                 np.reshape(pred_lbbox, (-1, 5 + num_classes))], axis=0)
             
-                    bboxes = utils.postprocess_boxes(pred_bbox, frame_size, input_size, 0.3)
-                    bboxes = utils.nms(bboxes, 0.45, method='nms')
+                    bboxes =  utils.postprocess_boxes(pred_bbox, frame_size, input_size, 0.3)
+                    bboxes =  utils.nms(bboxes, 0.45, method='nms')
                     utils.draw_bounding_boxes(pygame, self.display,  self.raw_image, bboxes)
                     
                     pygame.display.flip()
@@ -271,13 +271,18 @@ def main():
 
     try:
         return_elements = ["input/input_data:0", "pred_sbbox/concat_2:0", "pred_mbbox/concat_2:0", "pred_lbbox/concat_2:0"]
-        pb_file         = "./tensorflow_yolov3/yolov3_coco.pb"
+        pb_file         = "tensorflow_yolov3\yolov3_coco.pb"
         
         # video_path      = 0
         num_classes     = 80
         input_size      = 416
         graph           = tf.Graph()
-        return_tensors  = utils.read_pb_return_tensors(graph, pb_file, return_elements)
+        
+        THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+        my_file = os.path.join(THIS_FOLDER, pb_file)
+        print("my_file:", my_file)
+        
+        return_tensors  =  utils.read_pb_return_tensors(graph, my_file, return_elements)
         
         client = BasicSynchronousClient()
         client.game_loop(num_classes, input_size, graph, return_tensors)
