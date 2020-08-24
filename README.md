@@ -73,7 +73,7 @@ Go to the Carla Simulator examples path ..\CARLA_0.9.9\WindowsNoEditor\PythonAPI
 	> python spawn_npc.py
 
 
-6.  Start  vehicles, pedestrains, etc detections with YOLOV3 tensorflow implementation.	
+6.  Start detecting vehicles, pedestrians or bicycles.
 	> python yolov3_object_detection.py
 	
 	
